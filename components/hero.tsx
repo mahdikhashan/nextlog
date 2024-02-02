@@ -1,6 +1,12 @@
+import RssIcon from "@/components/rss-icon";
+import useConfig from "@/hooks/use-config";
+import Link from "next/link";
+
 function Hero() {
+  const { socials } = useConfig();
+
   return (
-    <div className="relative overflow-hidden bg-gradient-to-b from-gray flex flex-col justify-center items-center w-full">
+    <div className="relative overflow-hidden bg-gradient-to-b from-gray-400 flex flex-col justify-center items-center w-full">
       <div className="absolute bg-accent size-[1000px] rounded-full blur-[100px] opacity-30 bottom-0 left-1/2 transform translate-x-[-50%] translate-y-[90%]" />
       <div className="mx-auto max-w-2xl text-center flex flex-col justify-center h-96 px-4 sm:px-6 lg:px-8 z-10">
         <h1
@@ -12,19 +18,18 @@ function Hero() {
             New
           </span>
         </h1>
-        <p className="text-muted text-lg leading-6 mt-4 text-balance">
-          Discover the latest news and updates from the Nuxt community. Stay up
-          to date with NuxtJS releases and upcoming events.
+        <p className="text-lg leading-6 mt-4 text-balance text-black">
+          Discover the latest news and updates from the Next community. Stay up
+          to date with NextJS releases and upcoming events.
         </p>
         <form
           className="mt-6 flex justify-center"
           // @submit.prevent="loadData"
         >
           <input
-            v-model="email"
             type="text"
             placeholder="Your email"
-            className="w-full px-4 py-1 rounded-md shadow-sm sm:max-w-xs bg-primary text-primary outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary border-2 border-gray"
+            className="w-full px-4 py-1 rounded-md shadow-sm sm:max-w-xs bg-primary text-white outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary border-2 border-gray"
           />
           <button
             type="submit"
@@ -32,20 +37,17 @@ function Hero() {
           >
             <span className="flex items-center gap-2">
               Subscribe
-              <i
-                v-if="status === 'pending'"
-                className="i-lucide-loader animate-spin text-inverted size-4"
-              />
+              <RssIcon />
             </span>
           </button>
         </form>
-        <div className="flex items-center gap-4 text-primary justify-center mt-4">
-          {/* <NuxtLink
-          v-for="social in socials"
-          :key="social.name"
-          :to="social.url"
-          :class="`${social.icon} size-6 text-2xl text-primary cursor-pointer hover:text-accent transition-colors duration-300`"
-        /> */}
+        <div className="flex items-center gap-4 text-primary justify-center mt-8">
+          {socials &&
+            socials.map((social) => (
+              <Link href={social.url}>
+                <img width={25} height={25} key={social.name} src={social.icon} alt={social.name} />
+              </Link>
+            ))}
         </div>
       </div>
     </div>

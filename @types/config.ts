@@ -12,8 +12,15 @@ interface EmailProvider {
   };
 }
 
+type Social = {
+  name: string;
+  url: string;
+  icon: string;
+}
+
 interface NextlogConfig {
   layout?: Layout;
   theme?: Theme;
-  email?: EmailProvider;
+  emailProvider?: EmailProvider;
+  socials: Social[]
 }
