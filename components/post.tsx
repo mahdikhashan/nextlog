@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { ContentHTML } from "./content";
-import LinkIcon from "./icons/link";
+import LinkIcon from "@/components/icons/link";
 
 type PostProps = {
   title: string;
