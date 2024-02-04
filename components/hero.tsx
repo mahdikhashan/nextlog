@@ -1,4 +1,6 @@
-import RssIcon from "@/components/rss-icon";
+"use client"
+
+import RssIcon from "@/components/icons/rss";
 import useConfig from "@/hooks/use-config";
 import Link from "next/link";
 
@@ -6,7 +8,7 @@ function Hero() {
   const { socials } = useConfig();
 
   return (
-    <div className="relative overflow-hidden bg-gradient-to-b from-gray-400 flex flex-col justify-center items-center w-full">
+    <div className="relative overflow-hidden bg-gradient-to-bl from-gray-500 to-gray-200 flex flex-col justify-center items-center w-full">
       <div className="absolute bg-accent size-[1000px] rounded-full blur-[100px] opacity-30 bottom-0 left-1/2 transform translate-x-[-50%] translate-y-[90%]" />
       <div className="mx-auto max-w-2xl text-center flex flex-col justify-center h-96 px-4 sm:px-6 lg:px-8 z-10">
         <h1
