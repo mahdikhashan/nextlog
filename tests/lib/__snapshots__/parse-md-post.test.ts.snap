@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`parses markdown files correctly should parse faulty-post.md correctly 1`] = `
+exports[`parses markdown files correctly faulty-post.md should match snapshot correctly 1`] = `
 {
   "content": "--+
 title: Sample Post Title
@@ -14,7 +14,7 @@ content of it
 }
 `;
 
-exports[`parses markdown files correctly should parse sample-post.md correctly 1`] = `
+exports[`parses markdown files correctly sample-post.md should match snapshot correctly 1`] = `
 {
   "content": "
 # Description
