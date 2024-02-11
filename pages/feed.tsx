@@ -22,7 +22,7 @@ function generateFeed(posts: any) {
   </rss>`
 }
 
-export async function getServerSideProps({ res }) {
+export async function getServerSideProps({ res }: any) {
   const request = await fetch("http://localhost:8008/api/posts");
   const { posts } = await request.json();
 
