@@ -21,13 +21,10 @@ export default async function handler(
     const markdownFiles = allFilesInPath.filter((file) => file.match(/.*\.(md?)/gi));
     
     const posts = await Promise.all(markdownFiles.map(async (postFile) => {
-
       const fullPath = path.join(process.cwd(), "content/posts", `${postFile}`);
       const postFileMarkdown = fs.readFileSync(fullPath, "utf8");
-
       const post = parseMarkdown({ md: postFileMarkdown });
       const processedPost = await processMarkdown(post);
-
       return { ...post, content: processedPost };
     }));
 
